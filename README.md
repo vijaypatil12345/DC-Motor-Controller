@@ -1,47 +1,12 @@
-# DC-Motor-Controller
-#include<p18f4580.h>
-#define IN1      PORTCbits.RC0
-#define IN2      PORTCbits.RC1
-#define EN1      PORTCbits.RC2
+🔧 DC Motor Control Project with PIC18F4580 & L293D⚡
+Excited to share my recent project where I controlled a DC motor using a PIC18F4580 microcontroller along with basic components like a switch, battery, resistor, and the L293D motor driver.
 
-#define EN2      PORTCbits.RC3
-#define IN3      PORTCbits.RC4
-#define IN4      PORTCbits.RC5
+🔹 Project Overview:
+Microcontroller: PIC18F4580
+Motor driver: L293D for bidirectional motor contro Input control via switch
+Powered by a battery source Current limiting using resistor
+Programmed using Embedded C in MPLAB IDE 8.v92
 
-#define SW1      PORTBbits.RB0
-#define SW2      PORTBbits.RB1
+This project helped me understand the integration of hardware components with firmware logic, especially in real-world embedded applications like motor control systems.
 
-#define Dir_SW1  TRISBbits.RB0
-#define Dir_SW2  TRISBbits.RB1
-
-void main()
-{
-//variable declaration /init 
-
-//GPIO coonfurgation 
-
-TRISC=0x00;  // make all 8 pins as
-ADCON1=0x0f;  //config all analog pins to digital
-Dir_SW1=1;
-Dir_SW2=1;
-
-while(1)
-{
-if(SW1==0)
-{
-EN1 =  1;  //ALWAYS TRUE
-IN1 = 0;  // ENABLE THE I.P PINS
-IN2 = 1; //CLK WISE
-} 
-else if(SW2==0)
-{
-
-EN2=1;
-IN3=0;
-IN4=1;
-}
-else {
-IN1=IN2=IN3=IN4=0;
-} 
-}
-}
+💡 A great step forward in learning how microcontrollers interact with external devices and sensors!
